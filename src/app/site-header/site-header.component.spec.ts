@@ -8,12 +8,10 @@ describe('SiteHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SiteHeaderComponent ]
+      imports: [SiteHeaderComponent]
     })
     .compileComponents();
-  });
-
-  beforeEach(() => {
+    
     fixture = TestBed.createComponent(SiteHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

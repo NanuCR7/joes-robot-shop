@@ -5,7 +5,13 @@ body {
     font-size: 16px;
     color: #444;
   }
-  
+  .bold{
+    font-weight: bold;
+  }
+
+  .blue{
+    color: rgb(2, 2, 185);
+  }
   a {
     color: #444;
     text-decoration: none;

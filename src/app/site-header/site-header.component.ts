@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'bot-site-header',
+  standalone: true,
+  imports: [],
   templateUrl: './site-header.component.html',
-  styleUrls: ['./site-header.component.css']
+  styleUrl: './site-header.component.css'
 })
 export class SiteHeaderComponent {
-
-  constructor() { }
 
 }

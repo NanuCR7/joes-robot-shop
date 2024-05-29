@@ -1,19 +1,23 @@
 import { Component } from '@angular/core';
 import { IProduct } from './product.module';
 import { CommonModule } from '@angular/common';
+import { ProductDetailsComponent } from "../product-details/product-details.component";
+import { CartService } from '../cart.service';
 
 @Component({
-  selector: 'bot-catalog',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './catalog.component.html',
-  styleUrl: './catalog.component.css'
+    selector: 'bot-catalog',
+    standalone: true,
+    templateUrl: './catalog.component.html',
+    styleUrl: './catalog.component.css',
+    imports: [CommonModule, ProductDetailsComponent,ProductDetailsComponent]
 })
-export class CatalogComponent {
+export class CatalogComponent 
+{
 products:any;
 filter:string='';
 
-constructor(){
+
+constructor(private carSvc:CartService){
   this.products=[
   {
     id: 1,
@@ -198,6 +202,16 @@ getFilteredProducts(){
   return this.filter ===''?
   this.products
   : this.products.filter((product:any) => product.category === this.filter);
+}
+
+getDiscountedClasses(product: IProduct){
+  if(product.discount>0){
+    return ['strikethrough'];
+  }else return [];
+ //return {strikethrough:product.discount>0};
+}
+addToCart(product:IProduct){
+ this.carSvc.add(product);
 }
 
 }
